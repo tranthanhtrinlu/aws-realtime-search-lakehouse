@@ -99,11 +99,35 @@ cd dbt_logsearch && dbt run                        # transform trong Redshift
 
 ## Bằng chứng thực thi
 
-| | |
-|---|---|
-| ![EMR Serverless SUCCESS](./docs/emr-success.png) | ![Athena query](./docs/athena-query.png) |
-| ![Airflow DAG graph](./docs/airflow-dag.png) | ![Redshift + dbt](./docs/redshift-dbt.png) |
-| ![Power BI dashboard](./docs/powerbi-dashboard.png) | |
+**1. EMR Serverless — job xử lý toàn bộ pipeline chạy thành công**
+
+![EMR Serverless SUCCESS](./docs/emr-success.png)
+
+Job PySpark trên EMR Serverless đọc toàn bộ 28 ngày dữ liệu từ S3, ghi Silver/Gold vào Iceberg qua Glue Catalog. Trạng thái `SUCCESS`, chi phí thực tế chỉ ~$0.02 (0.267 vCPU-hour), chạy trong 59 giây.
+
+**2. Athena — query trực tiếp trên Iceberg lakehouse**
+
+![Athena query](./docs/athena-query.png)
+
+Top từ khoá tìm kiếm nhiều nhất trên toàn bộ 28 ngày, quét thẳng qua Glue Catalog — chỉ 7MB dữ liệu, chi phí gần như $0.
+
+**3. Airflow — DAG orchestrate Bronze → Silver → Gold**
+
+![Airflow DAG graph](./docs/airflow-dag.png)
+
+DAG `logsearch_bronze_silver_gold` với 2 task nối tiếp (`bronze_to_silver` → `silver_to_gold`), cả 2 đều xanh lá — chạy thành công trong container Airflow local.
+
+**4. Redshift + dbt — model window function**
+
+![Redshift dbt](./docs/redshift-dbt.png)
+
+Kết quả bảng `top_keywords_daily` sau khi dbt materialize trong Redshift Serverless — mỗi ngày đúng 5 dòng, xếp hạng bằng `ROW_NUMBER()` theo `search_count` giảm dần.
+
+**5. Power BI — dashboard tương tác**
+
+![Power BI dashboard](./docs/powerbi-dashboard.png)
+
+Kết nối trực tiếp Power BI Desktop → Redshift Serverless. Bảng chi tiết top 5 từ khoá/ngày và biểu đồ đường thể hiện từ khoá giữ hạng #1 đổi tay qua nhiều nội dung khác nhau theo thời gian.
 
 ## Bài học kỹ thuật đáng chú ý
 
@@ -112,8 +136,6 @@ cd dbt_logsearch && dbt run                        # transform trong Redshift
 - **Spark Structured Streaming file sink lưu đường dẫn tuyệt đối lúc ghi** vào `_spark_metadata` — ghi và đọc phải cùng 1 môi trường (container), không trộn Windows/Linux.
 - **Kafka cần 2 listener riêng** để phục vụ đồng thời client trên host (Windows) và client trong cùng mạng Docker.
 - **EMR Serverless và Redshift Serverless không có managed policy IAM dựng sẵn** như S3/Glue/Athena — phải tự viết custom policy cho user, và tự thêm quyền Glue/S3 cho IAM role của Redshift Spectrum.
-
-## License
 
 ## Author
 **Trần Thanh Trí** — Data Engineer
