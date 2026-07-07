@@ -1,0 +1,18 @@
+{
+    "applicationId": "00g7199eo6un8g25",
+    "executionRoleArn": "arn:aws:iam::YOUR_AWS_ACCOUNT_ID:role/emr-serverless-logsearch-role",
+    "name": "logsearch-bronze-silver-gold",
+    "jobDriver": {
+        "sparkSubmit": {
+            "entryPoint": "s3://thanhtri-logsearch-lakehouse-dev/scripts/emr_silver_gold.py",
+            "sparkSubmitParameters": "--conf spark.jars=/usr/share/aws/iceberg/lib/iceberg-spark3-runtime.jar --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions --conf spark.sql.catalog.glue_catalog=org.apache.iceberg.spark.SparkCatalog --conf spark.sql.catalog.glue_catalog.catalog-impl=org.apache.iceberg.aws.glue.GlueCatalog --conf spark.sql.catalog.glue_catalog.warehouse=s3://thanhtri-logsearch-lakehouse-dev/lakehouse/ --conf spark.hadoop.hive.metastore.client.factory.class=com.amazonaws.glue.catalog.metastore.AWSGlueDataCatalogHiveClientFactory"
+        }
+    },
+    "configurationOverrides": {
+        "monitoringConfiguration": {
+            "s3MonitoringConfiguration": {
+                "logUri": "s3://thanhtri-logsearch-lakehouse-dev/emr-logs/"
+            }
+        }
+    }
+}

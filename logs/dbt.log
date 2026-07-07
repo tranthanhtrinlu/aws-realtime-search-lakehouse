@@ -1,0 +1,53 @@
+[0m16:31:30.001131 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C52FCDBB50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C52FBFEB90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C52FBE3990>]}
+
+
+============================== 16:31:30.005286 | 1312c55c-275d-4735-a079-d3554d529e1f ==============================
+[0m16:31:30.005286 [info ] [MainThread]: Running with dbt=1.11.12
+[0m16:31:30.006277 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'E:\\dbt_profiles', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt init dbt_logsearch', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m16:31:30.041677 [debug] [MainThread]: Starter project path: E:\ProjectAWS-etl-user-logsearch-realtime\realtime-search-lakehouse\.venv\Lib\site-packages\dbt\include\starter_project
+[0m16:31:30.163513 [info ] [MainThread]: 
+Your new dbt project "dbt_logsearch" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m16:31:30.174757 [info ] [MainThread]: Setting up your profile.
+[0m16:32:23.486991 [debug] [MainThread]: Redshift adapter: Setting redshift_connector to ERROR
+[0m16:32:23.486991 [debug] [MainThread]: Redshift adapter: Setting redshift_connector.core to ERROR
+[0m16:33:34.624847 [info ] [MainThread]: Profile dbt_logsearch written to E:\dbt_profiles\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m16:33:34.624847 [debug] [MainThread]: Command `dbt init` succeeded at 16:33:34.624847 after 124.72 seconds
+[0m16:33:34.624847 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C52FCB65D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C52FBFEB90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C52FBFF290>]}
+[0m16:33:34.624847 [debug] [MainThread]: Flushing usage events
+[0m16:33:35.622880 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:35:15.415842 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019FD4331B10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019FD40C7DD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019FD4248F10>]}
+
+
+============================== 16:35:15.415842 | 632e1177-9b04-4b09-8622-34aaf6488e42 ==============================
+[0m16:35:15.415842 [info ] [MainThread]: Running with dbt=1.11.12
+[0m16:35:15.415842 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'E:\\dbt_profiles', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt debug', 'indirect_selection': 'eager', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m16:35:15.460896 [info ] [MainThread]: dbt version: 1.11.12
+[0m16:35:15.461431 [info ] [MainThread]: python version: 3.11.0
+[0m16:35:15.462472 [info ] [MainThread]: python path: E:\ProjectAWS-etl-user-logsearch-realtime\realtime-search-lakehouse\.venv\Scripts\python.exe
+[0m16:35:15.462998 [info ] [MainThread]: os info: Windows-10-10.0.26200-SP0
+[0m16:35:15.752156 [debug] [MainThread]: Redshift adapter: Setting redshift_connector to ERROR
+[0m16:35:15.753156 [debug] [MainThread]: Redshift adapter: Setting redshift_connector.core to ERROR
+[0m16:35:15.825237 [info ] [MainThread]: Using profiles dir at E:\dbt_profiles
+[0m16:35:15.825237 [info ] [MainThread]: Using profiles.yml file at E:\dbt_profiles\profiles.yml
+[0m16:35:15.825237 [info ] [MainThread]: Using dbt_project.yml file at E:\ProjectAWS-etl-user-logsearch-realtime\realtime-search-lakehouse\dbt_project.yml
+[0m16:35:15.825237 [error] [MainThread]: Encountered an error:
+Internal Error
+  Profile should not be None if loading profile completed
+[0m16:35:15.825237 [debug] [MainThread]: Command `dbt debug` failed at 16:35:15.825237 after 0.51 seconds
+[0m16:35:15.825237 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019FD43363D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019FD40C7F90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019FD427EE90>]}
+[0m16:35:15.825237 [debug] [MainThread]: Flushing usage events
+[0m16:35:16.911418 [debug] [MainThread]: An error was encountered while trying to flush usage events

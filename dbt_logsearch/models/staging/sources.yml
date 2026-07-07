@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: logsearch_spectrum
+    schema: logsearch_spectrum
+    tables:
+      - name: gold_keyword_trends
+      - name: silver_search_events
