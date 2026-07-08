@@ -20,7 +20,7 @@ Pipeline ETL/ELT thời gian thực xử lý log hành vi tìm kiếm trên nề
 
 Log tìm kiếm dạng Parquet từ nền tảng xem phim OTT, 28 ngày (2022-06-01 → 06-14, 2022-07-01 → 07-14), **2.351.335 dòng** sau khi làm sạch. 10 cột: `eventID, datetime, user_id, keyword, category (enter/quit), proxy_isp, platform, networkType, action, userPlansMap`.
 
-## Câu hỏi nghiệp vụ trả lời được
+## Đầu ra kết quả
 
 - Từ khoá tìm kiếm xu hướng theo ngày, phát hiện nội dung viral (tăng đột biến)
 - Xếp hạng top 5 từ khoá mỗi ngày (window function)
